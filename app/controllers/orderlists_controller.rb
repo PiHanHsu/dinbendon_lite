@@ -3,7 +3,6 @@ class OrderlistsController < ApplicationController
   before_action :find_restaurant, only: [:new, :create ,:edit, :update, :destroy]
 	
 	def new
-		#@restaurant = Restaurant.find(params[:restaurant_id])
 		@orderlist = Orderlist.new
 	end
 

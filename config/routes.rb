@@ -5,9 +5,6 @@ Rails.application.routes.draw do
 
   resources :restaurants do
   	resources :orderlists, only: [:index, :new, :create]
-  	member do
-  		get :order
-  	end
   end
  
   resources :orderlists
