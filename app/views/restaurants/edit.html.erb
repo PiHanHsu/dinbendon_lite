@@ -1,0 +1,18 @@
+<h1> This is Edit page </h1>
+<div class="card">
+	<div class="card-block">
+		<div class="row">
+			<div class="col-md-4 col-xs-12 text-center">
+				<%= form_for(@restaurant) do |f| %>
+					<%= render :partial => "restaurant_form", :locals => { :f => f } %>
+					<div class="form-group">
+						<%= f.submit "Update", :method => :patch ,class: 'btn btn-primary'  %>
+					</div>
+				<% end %>
+				<div class="form-group">
+					<%= link_to "Cancel", restaurants_path, class: 'btn btn-warning' %>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
