@@ -36,7 +36,10 @@ class RestaurantsController < ApplicationController
 		end 
 	end
 
-	def destory
+	def destroy
+		@restaurant.destroy
+
+		redirect_to restaurants_path, notice: "刪除餐廳成功"
 	end
 
 	def ongoing
