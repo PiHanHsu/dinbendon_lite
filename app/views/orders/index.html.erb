@@ -25,7 +25,8 @@
 					<%= order.restaurant.name %>
 			</td>
 			<td>
-				<%= link_to "開始訂購", orders_path, class: 'btn btn-primary' %>
+				<%= link_to "開始訂購", new_order_orderlist_path(order), class: 'btn btn-primary' %>
+				<%= link_to "結束訂購", closed_order_path(order), class: 'btn btn-primary' %>
 				
 				
 			</td>
@@ -35,7 +36,7 @@
 	<tfoot>
 		<tr>
 			<td>
-				<%= link_to "new", new_restaurant_path, class: 'btn btn-warning' %>
+				<%= link_to "All List", restaurants_path, class: 'btn btn-warning' %>
 				<%= link_to "sign out", destroy_user_session_path, method: :delete, class: 'btn btn-warning' %>
 			</td>
 		</tr>

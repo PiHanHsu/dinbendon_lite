@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
 	before_action :authenticate_user!
-	before_action :find_order, only: [:show, :order ,:edit, :update, :destroy]
+	before_action :find_order, only: [:show, :order ,:edit, :closed,:update, :destroy]
   before_action :find_restaurant, only: [:new]
 
 	def index 
@@ -18,12 +18,23 @@ class OrdersController < ApplicationController
 
 	def create
 		@order = Order.create(:user_id => current_user.id, :restaurant_id => @restaurant_id, :is_open => true)
+		
 		if @order.save
 			redirect_to orders_path, notice: "開團成功！"
 		else
 			redirect_to restaurant_path(@restaurant)
 		end
+	end
 
+	def closed
+		@order.is_open = false
+		@order.save
+
+		if @order.save
+			redirect_to orders_path, notice: "結束訂購！"
+		else
+			redirect_to restaurants_path, notice: "結束訂購失敗！"
+		end
 	end
 
 

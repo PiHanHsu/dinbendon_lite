@@ -10,7 +10,7 @@
     <%= f.label :price, "金額" %>
     <%= f.text_field :price %> <br />
 
-    <%= hidden_field_tag :restaurant_id, @restaurant.id %>
+    <%= hidden_field_tag :order_id, @order.id %>
 
     <div class="form-group">
 			<%= f.submit "Create", class: 'btn btn-primary' %>
