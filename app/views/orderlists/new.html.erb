@@ -1,7 +1,7 @@
 <div class="row text-center">
 	<h1> This is Order page !! </h1>
 	<br></br>
-  <%= image_tag("彈芽麵.jpg") %>    
+  <%= image_tag(@restaurant.menu_photo.url) %>    
   <br></br>
   <%= form_for(@orderlist) do |f| %>
     <%= f.label :description, "餐點" %>

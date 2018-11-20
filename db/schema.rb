@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181118091644) do
+ActiveRecord::Schema.define(version: 20181120145504) do
 
   create_table "orderlists", force: :cascade do |t|
     t.integer "user_id"
@@ -29,6 +29,10 @@ ActiveRecord::Schema.define(version: 20181118091644) do
     t.string "address"
     t.string "tel"
     t.boolean "status"
+    t.string "menu_photo_file_name"
+    t.string "menu_photo_content_type"
+    t.bigint "menu_photo_file_size"
+    t.datetime "menu_photo_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
