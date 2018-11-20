@@ -1,0 +1,47 @@
+<h1> 午餐吃好料！！ </h1>
+
+<div class="table-responsive">
+	<table class="table">
+	<thead>
+		<tr>
+			<th>
+				<h3> 開團人 </h3>
+			</th>
+			<th>
+				<h3> 餐廳名稱 </h3>
+			</th>
+			<th>
+				<h3> Action </h3>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @orders.each do |order| %>
+		<tr>
+			<td>
+					<%= order.user.username %>
+			</td>
+			<td>
+					<%= order.restaurant.name %>
+			</td>
+			<td>
+				<%= link_to "開始訂購", orders_path, class: 'btn btn-primary' %>
+				
+				
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td>
+				<%= link_to "new", new_restaurant_path, class: 'btn btn-warning' %>
+				<%= link_to "sign out", destroy_user_session_path, method: :delete, class: 'btn btn-warning' %>
+			</td>
+		</tr>
+	</tfoot>
+</table>
+</div>
+
+
+
