@@ -30,6 +30,17 @@
 			</td>
 		</tr>
 		<% end %>
+		<tr>
+			<td>
+					<h3> Total </h3>
+			</td>
+			<td>
+					
+			</td>
+			<td>
+				  <h3> <%= @orderlists.sum(:price) %> </h3>
+			</td>
+		</tr>
 	</tbody>
 	<tfoot>
 		<tr>
