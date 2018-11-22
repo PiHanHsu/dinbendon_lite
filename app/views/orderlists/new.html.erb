@@ -13,7 +13,7 @@
     <%= hidden_field_tag :order_id, @order.id %>
 
     <div class="form-group">
-			<%= f.submit "Create", class: 'btn btn-primary' %>
+			<%= f.submit "訂購", class: 'btn btn-primary' ,data: { confirm: "確定訂購?" } %>
 		</div>
   <% end %>       
 </div>

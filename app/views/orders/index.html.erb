@@ -26,7 +26,7 @@
 			</td>
 			<td>
 				<%= link_to "開始訂購", new_order_orderlist_path(order), class: 'btn btn-primary' %>
-				<%= link_to "結束訂購", closed_order_path(order), class: 'btn btn-primary' %>
+				<%= link_to "結束訂購", closed_order_path(order), class: 'btn btn-primary',data: { confirm: "確定結束訂購?" } %>
 				
 				
 			</td>
