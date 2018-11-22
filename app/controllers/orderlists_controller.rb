@@ -1,7 +1,11 @@
 class OrderlistsController < ApplicationController
 	before_action :authenticate_user!
-  before_action :find_order, only: [:new ,:create]
+  before_action :find_order, only: [:index, :new ,:create]
 	
+  def index
+    @orderlists = @order.orderlists.all
+  end
+
 	def new
 		@orderlist = Orderlist.new
 	end

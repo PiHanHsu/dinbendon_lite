@@ -1,0 +1,48 @@
+<h1> Orderlist page </h1>
+
+
+<div class="table-responsive">
+	<table class="table">
+	<thead>
+		<tr>
+			<th>
+				<h3> 訂購人 </h3>
+			</th>
+			<th>
+				<h3> 訂購項目 </h3>
+			</th>
+			<th>
+				<h3> 金額 </h3>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @orderlists.each do |orderlist| %>
+		<tr>
+			<td>
+					<%= orderlist.user.username %>
+			</td>
+			<td>
+					<%= orderlist.description %>
+			</td>
+			<td>
+				  <%= orderlist.price %>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td>
+				<% if current_user == @order.user %>
+					<%= link_to "結束訂購", closed_order_path(@order), class: 'btn btn-primary',data: { confirm: "確定結束訂購?" } %>
+				<% end %>
+				<%= link_to "回首頁", :root, class: 'btn btn-warning' %>
+			</td>
+		</tr>
+	</tfoot>
+	</table>
+</div>
+
+
+
