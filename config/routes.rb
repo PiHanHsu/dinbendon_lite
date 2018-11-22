@@ -3,10 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root "orders#index"
 
-  resources :restaurants do
-  	resources :orders, only: [:index, :new, :create]
-  	resources :orderlists, only: [:index, :new, :create]
-  end
+  resources :restaurants
  
   resources :orderlists
   resources :orders do 
