@@ -1,8 +1,8 @@
 <div class="row text-center">
-	<h1> This is show page </h1>
+	<h1> <%= @restaurant.name %> </h1>
 	<br>
   <%= image_tag(@restaurant.menu_photo.url) %>
   <br>
   </br>
-  <%= link_to "Order", new_order_path(@restaurant), class: 'btn btn-primary' %>           
+  <%= link_to "開團訂購", new_order_path(@restaurant), class: 'btn btn-primary' %>           
 </div>

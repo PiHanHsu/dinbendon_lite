@@ -1,4 +1,6 @@
-<h1> 午餐吃好料！！ </h1>
+<div class="text-center">
+	<h1> 來訂好料囉～ </h1>
+</div>
 
 <div class="table-responsive">
 	<table class="table">
@@ -16,26 +18,30 @@
 		</tr>
 	</thead>
 	<tbody>
-		<% @orders.each do |order| %>
-		<tr>
-			<td>
-					<%= order.user.username %>
-			</td>
-			<td>
-					<%= order.restaurant.name %>
-			</td>
-			<td>
-				<%= link_to "開始訂購", new_order_orderlist_path(order), class: 'btn btn-primary' %>
-				<%= link_to "查看訂購名單", order_orderlists_path(order), class: 'btn btn-primary' %>
-			</td>
-		</tr>
+		<% if @orders.first == nil	 %>
+			<% "目前沒人開團，看一下餐廳清單開個團吧！" %>
+		<% else %>
+			<% @orders.each do |order| %>
+			<tr>
+				<td>
+						<%= order.user.username %>
+				</td>
+				<td>
+						<%= order.restaurant.name %>
+				</td>
+				<td>
+					<%= link_to "開始訂購", new_order_orderlist_path(order), class: 'btn btn-primary' %>
+					<%= link_to "查看訂購名單", order_orderlists_path(order), class: 'btn btn-primary' %>
+				</td>
+			</tr>
+			<% end %>
 		<% end %>
 	</tbody>
 	<tfoot>
 		<tr>
 			<td>
-				<%= link_to "All List", restaurants_path, class: 'btn btn-warning' %>
-				<%= link_to "sign out", destroy_user_session_path, method: :delete, class: 'btn btn-warning' %>
+				<%= link_to "餐廳清單", restaurants_path, class: 'btn btn-warning' %>
+				<%= link_to "登出", destroy_user_session_path, method: :delete, class: 'btn btn-warning' %>
 			</td>
 		</tr>
 	</tfoot>

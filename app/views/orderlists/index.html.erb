@@ -1,8 +1,10 @@
-<h1> Orderlist page </h1>
+<div class="text-center">
+	<h1> 訂購清單 </h1>
+</div>
 
 
 <div class="table-responsive">
-	<table class="table">
+	<table class="table table-striped">
 	<thead>
 		<tr>
 			<th>
@@ -10,6 +12,9 @@
 			</th>
 			<th>
 				<h3> 訂購項目 </h3>
+			</th>
+			<th>
+				<h3> 數量 </h3>
 			</th>
 			<th>
 				<h3> 金額 </h3>
@@ -20,13 +25,16 @@
 		<% @orderlists.each do |orderlist| %>
 		<tr>
 			<td>
-					<%= orderlist.user.username %>
+				<h4>	<%= orderlist.user.username %> </h4>
 			</td>
 			<td>
-					<%= orderlist.description %>
+				<h4>	<%= orderlist.description %>  </h4>
 			</td>
 			<td>
-				  <%= orderlist.price %>
+				<h4>	<%= orderlist.quantity %> </h4>
+			</td>
+			<td>
+				<h4>  <%= orderlist.price %>  </h4>
 			</td>
 		</tr>
 		<% end %>
@@ -38,12 +46,15 @@
 					
 			</td>
 			<td>
+					
+			</td>
+			<td>
 				  <h3> <%= @orderlists.sum(:price) %> </h3>
 			</td>
 		</tr>
 	</tbody>
 	<tfoot>
-		<tr>
+		<tr class="table-dark">
 			<td>
 				<% if current_user == @order.user %>
 					<%= link_to "結束訂購", closed_order_path(@order), class: 'btn btn-primary',data: { confirm: "確定結束訂購?" } %>

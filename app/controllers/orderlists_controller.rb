@@ -32,7 +32,7 @@ private
 	end
 
 	def orderlist_params
-    params.require(:orderlist).permit(:description, :price, :user_id, :restaurant_id, :order_id)
+    params.require(:orderlist).permit(:description, :price, :user_id, :restaurant_id, :order_id, :quantity)
   end
 
 end

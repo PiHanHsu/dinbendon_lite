@@ -31,9 +31,9 @@
 					<%= restaurant.tel %>
 			</td>
 			<td>
-				<%= link_to "Show", restaurant_path(restaurant), class: 'btn btn-primary' %>
-				<%= link_to "Edit", edit_restaurant_path(restaurant), class: 'btn btn-info' %>
-				<%= link_to "Delete", restaurant_path(restaurant), method: :delete, class: 'btn btn-danger' %>
+				<%= link_to "看菜單", restaurant_path(restaurant), class: 'btn btn-primary' %>
+				<%= link_to "編輯餐廳", edit_restaurant_path(restaurant), class: 'btn btn-info' %>
+				<%= link_to "刪除餐廳", restaurant_path(restaurant), method: :delete, class: 'btn btn-danger' %>
 				
 			</td>
 		</tr>
@@ -42,8 +42,8 @@
 	<tfoot>
 		<tr>
 			<td>
-				<%= link_to "new", new_restaurant_path, class: 'btn btn-warning' %>
-				<%= link_to "sign out", destroy_user_session_path, method: :delete, class: 'btn btn-warning' %>
+				<%= link_to "新增餐廳", new_restaurant_path, class: 'btn btn-warning' %>
+				<%= link_to "登出", destroy_user_session_path, method: :delete, class: 'btn btn-warning' %>
 			</td>
 		</tr>
 	</tfoot>
