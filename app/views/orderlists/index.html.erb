@@ -59,7 +59,6 @@
 				<% if current_user == @order.user %>
 					<%= link_to "結束訂購", closed_order_path(@order), class: 'btn btn-primary',data: { confirm: "確定結束訂購?" } %>
 				<% end %>
-				<%= link_to "回首頁", :root, class: 'btn btn-warning' %>
 			</td>
 		</tr>
 	</tfoot>
