@@ -1,5 +1,4 @@
   <%= f.input :name, label: "姓名" %>
 	<%= f.input :address, label: "地址" %>
 	<%= f.input :tel, label: "電話" %>
-	<%= f.label 	"上傳照片" %>	
-	<%= f.file_field :menu_photo, label: "上傳照片" %>
+	<%= f.input :menu_photo, as: :file ,label: "上傳照片" %>

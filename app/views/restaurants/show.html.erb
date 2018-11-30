@@ -1,7 +1,7 @@
 <div class="row text-center">
 	<h1> <%= @restaurant.name %> </h1>
 	<br>
-  <%= image_tag(@restaurant.menu_photo.url) %>
+  <%= image_tag(@restaurant.menu_photo.url(:medium)) %>
   <br>
   </br>
   <%= link_to "開團訂購", new_order_path(@restaurant), class: 'btn btn-primary' %>           
