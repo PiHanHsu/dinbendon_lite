@@ -22,6 +22,7 @@
       <div class="container">
       <div class="row" style="padding-top: 20px">
           <div class="col-lg-12">
+            <%= image_tag("HoJar.jpg", size: "70x70") %>
             <% if current_user %>
             <%= link_to "回首頁", :root, class: 'btn btn-primary' %>
             <%= link_to '歷史訂單', history_order_path(current_user), class: 'btn btn-warning' %>
