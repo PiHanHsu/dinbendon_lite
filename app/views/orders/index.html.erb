@@ -1,26 +1,27 @@
 <div class="text-center">
-	<h1> 來訂好料囉～ </h1>
-</div>
 
+<% if @orders.first == nil	 %>
+ <h1> 來訂好料囉～ </h1>
+ <h2>	<%= "目前沒人開團，看一下餐廳清單開個團吧！" %> </h2>
+ <%= link_to "餐廳清單", restaurants_path, class: 'btn btn-warning' %>
+<% else %>
+<h1> 正在進行中的團購！ </h1>
 <div class="table-responsive">
 	<table class="table">
 	<thead>
 		<tr>
-			<th>
+			<th class="text-center">
 				<h3> 開團人 </h3>
 			</th>
-			<th>
+			<th class="text-center">
 				<h3> 餐廳名稱 </h3>
 			</th>
-			<th>
+			<th class="text-center">
 				<h3> Action </h3>
 			</th>
 		</tr>
 	</thead>
 	<tbody>
-		<% if @orders.first == nil	 %>
-			<% "目前沒人開團，看一下餐廳清單開個團吧！" %>
-		<% else %>
 			<% @orders.each do |order| %>
 			<tr>
 				<td>
@@ -35,7 +36,6 @@
 				</td>
 			</tr>
 			<% end %>
-		<% end %>
 	</tbody>
 	<tfoot>
 		<tr>
@@ -45,6 +45,10 @@
 		</tr>
 	</tfoot>
 	</table>
+<% end %>
+</div>
+
+
 </div>
 
 
