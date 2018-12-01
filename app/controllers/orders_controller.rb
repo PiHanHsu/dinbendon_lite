@@ -7,6 +7,10 @@ class OrdersController < ApplicationController
 		@orders = Order.where(:is_open => true)
 	end
 
+	def history
+		@orders = Order.where(:user_id => current_user.id, :is_open => false )
+	end
+
 	def new
 		@order = Order.create(:user_id => current_user.id, :restaurant_id => @restaurant.id, :is_open => true)
 		if @order.save
@@ -42,6 +46,11 @@ class OrdersController < ApplicationController
 		end
 	end
 
+  def destroy
+		@order.destroy
+		@orders = Order.where(:user_id => current_user.id, :is_open => false)
+		redirect_to history_order_path(current_user), notice: "刪除餐廳成功"
+	end
 
 private
 

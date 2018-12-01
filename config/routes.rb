@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   	resources :orderlists, only: [:index, :new, :create]
   	member do 
   		get :closed
+      get :history
   	end
   end
 
