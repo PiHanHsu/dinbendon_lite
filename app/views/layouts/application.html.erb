@@ -24,6 +24,7 @@
           <div class="col-lg-12">
             <% if current_user %>
             <%= link_to "回首頁", :root, class: 'btn btn-primary' %>
+            <%= link_to '編輯個人資料', edit_user_registration_path, class: 'btn btn-warning' %>
             <%= link_to '登出', destroy_user_session_path, :method => :delete, class: 'btn btn-warning' %> 
             <% end %>
           </div>
