@@ -31,7 +31,7 @@ class OrdersController < ApplicationController
 		@order.save
 
 		if @order.save
-			OrderConfirmMailer.send_orderlist(current_user).deliver_now
+			OrderConfirmMailer.send_orderlist(current_user, @order).deliver_now
 			redirect_to orders_path, notice: "結束訂購！"
 		else
 			redirect_to restaurants_path, notice: "結束訂購失敗！"

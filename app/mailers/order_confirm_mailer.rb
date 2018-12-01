@@ -1,7 +1,8 @@
 class OrderConfirmMailer < ApplicationMailer
 
-	def send_orderlist(user)
+	def send_orderlist(user, order)
 		@user = user
+		@orderlists = order.orderlists
     mail to:@user.email, subject:"訂購清單明細！"
 	end
 end

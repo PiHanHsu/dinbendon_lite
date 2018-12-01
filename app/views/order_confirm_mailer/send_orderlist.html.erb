@@ -1,3 +1,54 @@
 <%= @user.username %>，你好：
 
-以下是訂購清單！
+以下是訂購明細:
+
+<table border="1">
+	<thead>
+		<tr>
+			<th>
+				<h3> 訂購人 </h3>
+			</th>
+			<th>
+				<h3> 訂購項目 </h3>
+			</th>
+			<th>
+				<h3> 數量 </h3>
+			</th>
+			<th>
+				<h3> 金額 </h3>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @orderlists.each do |orderlist| %>
+		<tr>
+			<td>
+				<h4>	<%= orderlist.user.username %> </h4>
+			</td>
+			<td>
+				<h4>	<%= orderlist.description %>  </h4>
+			</td>
+			<td>
+				<h4>	<%= orderlist.quantity %> </h4>
+			</td>
+			<td>
+				<h4>  <%= orderlist.price %>  </h4>
+			</td>
+		</tr>
+		<% end %>
+		<tr>
+			<td>
+					<h3> Total </h3>
+			</td>
+			<td>
+					
+			</td>
+			<td>
+					
+			</td>
+			<td>
+				  <h3> <%= @orderlists.sum(:price) %> </h3>
+			</td>
+		</tr>
+	</tbody>
+</table>
