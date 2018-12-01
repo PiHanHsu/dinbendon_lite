@@ -31,7 +31,11 @@ class OrdersController < ApplicationController
 		@order.save
 
 		if @order.save
-			OrderConfirmMailer.send_orderlist(current_user, @order).deliver_now
+			@orderlists = @order.orderlists
+			@orderlists.each do |orderlist|
+				@user = orderlist.user
+				OrderConfirmMailer.send_orderlist(@user, @order).deliver_now
+			end
 			redirect_to orders_path, notice: "結束訂購！"
 		else
 			redirect_to restaurants_path, notice: "結束訂購失敗！"
