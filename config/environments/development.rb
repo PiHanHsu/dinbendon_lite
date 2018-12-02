@@ -40,8 +40,10 @@ config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   config.paperclip_defaults = {
   :storage => :s3,
+  :s3_host_name => 's3-ap-northeast-1.amazonaws.com',
   :s3_credentials => "#{Rails.root}/config/aws.yml",
   :bucket => 'hojar',
+  :s3_protocol => :https,
   :s3_permissions => :private
 }
   # Don't care if the mailer can't send.
