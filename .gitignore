@@ -22,4 +22,4 @@
 
 .byebug_history
 
-/config/*.aws.yml
+/config/aws.yml

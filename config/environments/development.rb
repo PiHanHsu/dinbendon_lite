@@ -38,6 +38,12 @@ config.action_mailer.default_url_options = { :host => 'localhost:3000' }
       enable_starttls_auto: true
     }
 
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => "#{Rails.root}/config/aws.yml",
+  :bucket => 'hojar',
+  :s3_permissions => :private
+}
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
 
