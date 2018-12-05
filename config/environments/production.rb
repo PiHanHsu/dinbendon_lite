@@ -23,7 +23,6 @@ Rails.application.configure do
   },
   :bucket => 'hojar',
   :s3_protocol => :https,
-  :s3_permissions => :private
 }
 
   # Code is not reloaded between requests.
