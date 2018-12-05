@@ -25,6 +25,7 @@
             <%= image_tag("HoJar.jpg", size: "70x70") %>
             <% if current_user %>
             <%= link_to "回首頁", :root, class: 'btn btn-primary' %>
+            <%= link_to '餐廳清單', restaurants_path, class: 'btn btn-warning' %>
             <%= link_to '歷史訂單', history_order_path(current_user), class: 'btn btn-warning' %>
             <%= link_to '編輯個人資料', edit_user_registration_path, class: 'btn btn-warning' %>
             <%= link_to '登出', destroy_user_session_path, :method => :delete, class: 'btn btn-warning' %> 
