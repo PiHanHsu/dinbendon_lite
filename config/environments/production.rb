@@ -13,6 +13,19 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
 
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_host_name => 's3-ap-northeast-1.amazonaws.com',
+  :s3_credentials => {
+    :access_key_id => ENV["S3_ACCESS_KEY_ID"],
+    :secret_access_key => ENV["S3_SECRET_ACCESS_KEY"],
+    :s3_region=> ENV["S3_REGION"]
+  },
+  :bucket => 'hojar',
+  :s3_protocol => :https,
+  :s3_permissions => :private
+}
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
