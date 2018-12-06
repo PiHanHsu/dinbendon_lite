@@ -1,11 +1,11 @@
 <%= @user.username %>，你好：
-<br>
-  由<%= @orderlist.order.user.username 開啟的 @orderlist.order.restaurant.name 團購已結束 %>
-<br>
+<br></br>
+  由 <%= @order.user.username %> 開啟的 <%= @order.restaurant.name %> 團購已結束
+<br></br>
   以下是訂購明細:
+<br></br>
 
-<br>
-<table border="0.5">
+<table border="1">
 	<thead>
 		<tr>
 			<th>
