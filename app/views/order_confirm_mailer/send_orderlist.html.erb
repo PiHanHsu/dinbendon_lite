@@ -1,8 +1,11 @@
 <%= @user.username %>，你好：
+<br>
+  由<%= @orderlist.order.user.username 開啟的 @orderlist.order.restaurant.name 團購已結束 %>
+<br>
+  以下是訂購明細:
 
-以下是訂購明細:
-
-<table border="1">
+<br>
+<table border="0.5">
 	<thead>
 		<tr>
 			<th>
@@ -13,6 +16,9 @@
 			</th>
 			<th>
 				<h3> 數量 </h3>
+			</th>
+			<th>
+				<h3> 備註 </h3>
 			</th>
 			<th>
 				<h3> 金額 </h3>
@@ -26,10 +32,13 @@
 				<h4>	<%= orderlist.user.username %> </h4>
 			</td>
 			<td>
-				<h4>	<%= orderlist.description %>  </h4>
+				<h4>	<%= orderlist.item %>  </h4>
 			</td>
 			<td>
 				<h4>	<%= orderlist.quantity %> </h4>
+			</td>
+			<td>
+				<h4>	<%= orderlist.description %>  </h4>
 			</td>
 			<td>
 				<h4>  <%= orderlist.price %>  </h4>
@@ -39,6 +48,9 @@
 		<tr>
 			<td>
 					<h3> Total </h3>
+			</td>
+			<td>
+					
 			</td>
 			<td>
 					
