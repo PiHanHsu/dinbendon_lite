@@ -33,7 +33,11 @@
 						<%= order.user.username %>
 				</td>
 				<td>
-						<%= order.restaurant.name %>
+					  <% if order.restaurant %>
+							<%= order.restaurant.name %>
+						<% else %>
+						  <%= "餐廳已刪除" %>
+						<% end %>
 				</td>
 				<td>
 					<%= link_to "查看明細", order_orderlists_path(order), class: 'btn btn-primary' %>

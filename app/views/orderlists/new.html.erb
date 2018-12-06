@@ -8,8 +8,9 @@
   </div>
   <div class="col-md-5 col-xs-12">
     <%= simple_form_for(@orderlist) do |f| %>
-    <%= f.input :description, label: "餐點" %>
+    <%= f.input :item, label: "餐點" %>
     <%= f.input :quantity, label: "數量" %>
+    <%= f.input :description, label: "備註" %>
     <%= f.input :price, label: "總金額" %> 
     <%= hidden_field_tag :order_id, @order.id %>
     <div class="form-group">

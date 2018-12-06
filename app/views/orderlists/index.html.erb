@@ -1,69 +1,75 @@
 <div class="text-center">
 	<h1> 訂購清單 </h1>
+	<div class="table-responsive">
+		<table class="table table-striped">
+		<thead>
+			<tr>
+				<th style="width: 20%" class="text-center">
+					<h3> 訂購人 </h3>
+				</th>
+				<th style="width: 20%" class="text-center">
+					<h3> 訂購項目 </h3>
+				</th>
+				<th style="width: 20%" class="text-center">
+					<h3> 數量 </h3>
+				</th>
+				<th style="width: 20%" class="text-center">
+					<h3> 備註 </h3>
+				</th>
+				<th style="width: 20%" class="text-center">
+					<h3> 金額 </h3>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @orderlists.each do |orderlist| %>
+			<tr>
+				<td>
+					<h4>	<%= orderlist.user.username %> </h4>
+				</td>
+				<td>
+					<h4>	<%= orderlist.item %>  </h4>
+				</td>
+				<td>
+					<h4>	<%= orderlist.quantity %> </h4>
+				</td>
+				<td>
+					<h4>	<%= orderlist.description %>  </h4>
+				</td>
+				<td>
+					<h4>  <%= orderlist.price %>  </h4>
+				</td>
+			</tr>
+			<% end %>
+			<tr>
+				<td>
+						<h3> Total </h3>
+				</td>
+				<td>
+						
+				</td>
+				<td>
+						
+				</td>
+				<td>
+						
+				</td>
+				<td>
+					  <h3> <%= @orderlists.sum(:price) %> </h3>
+				</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr class="table-dark">
+				<td>
+					<% if current_user == @order.user && @order.is_open == true %>
+						<%= link_to "結束訂購", closed_order_path(@order), class: 'btn btn-primary',data: { confirm: "確定結束訂購?" } %>
+					<% end %>
+				</td>
+			</tr>
+		</tfoot>
+		</table>
+	</div>
 </div>
-
-
-<div class="table-responsive">
-	<table class="table table-striped">
-	<thead>
-		<tr>
-			<th>
-				<h3> 訂購人 </h3>
-			</th>
-			<th>
-				<h3> 訂購項目 </h3>
-			</th>
-			<th>
-				<h3> 數量 </h3>
-			</th>
-			<th>
-				<h3> 金額 </h3>
-			</th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @orderlists.each do |orderlist| %>
-		<tr>
-			<td>
-				<h4>	<%= orderlist.user.username %> </h4>
-			</td>
-			<td>
-				<h4>	<%= orderlist.description %>  </h4>
-			</td>
-			<td>
-				<h4>	<%= orderlist.quantity %> </h4>
-			</td>
-			<td>
-				<h4>  <%= orderlist.price %>  </h4>
-			</td>
-		</tr>
-		<% end %>
-		<tr>
-			<td>
-					<h3> Total </h3>
-			</td>
-			<td>
-					
-			</td>
-			<td>
-					
-			</td>
-			<td>
-				  <h3> <%= @orderlists.sum(:price) %> </h3>
-			</td>
-		</tr>
-	</tbody>
-	<tfoot>
-		<tr class="table-dark">
-			<td>
-				<% if current_user == @order.user %>
-					<%= link_to "結束訂購", closed_order_path(@order), class: 'btn btn-primary',data: { confirm: "確定結束訂購?" } %>
-				<% end %>
-			</td>
-		</tr>
-	</tfoot>
-	</table>
-</div>
-
 
 
