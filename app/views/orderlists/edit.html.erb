@@ -1,0 +1,17 @@
+<div class="row text-center">
+  <div class="col-md-12 col-xs-12">
+    <h1> <%= @orderlist.order.restaurant.name %> </h1>
+    <br>
+  </div>
+  <div class="col-md-7 col-xs-12">
+    <%= image_tag(@orderlist.order.restaurant.menu_photo.url(:medium)) %>
+  </div>
+  <div class="col-md-5 col-xs-12">
+    <%= simple_form_for(@orderlist) do |f| %>
+    <%= render :partial => "orderlist_form", :locals => { :f => f } %> 
+    <div class="form-group">
+      <%= f.submit "更新", :method => :patch, class: 'btn btn-primary' ,data: { confirm: "確定更新?" } %>
+    </div>  
+    <% end %> 
+  </div>   
+</div>
