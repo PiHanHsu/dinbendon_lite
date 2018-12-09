@@ -1,0 +1,66 @@
+<div class="text-center">
+
+<% if @orders.first == nil	 %>
+ <h2>	<%= "沒人開過團！" %> </h2>
+<% else %>
+	<h1> 訂單清單 </h1>
+	<div class="table-responsive">
+		<table class="table table-striped">
+		<thead>
+			<tr>
+				<th style="width: 5%" class="text-center">
+					<h3> # </h3>
+				</th>
+				<th style="width: 15%" class="text-center">
+					<h3> 開團人 </h3>
+				</th>
+				<th style="width: 20%" class="text-center">
+					<h3> 開團日期 </h3>
+				</th>
+				<th style="width: 20%" class="text-center">
+					<h3> 餐廳名稱 </h3>
+				</th>
+				<th style="width: 20%" class="text-center">
+					<h3> 團購人數 </h3>
+				</th>
+				<th style="width: 20%" class="text-center">
+					<h3> 動作 </h3>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+				<% @orders.each_with_index do |order, index| %>
+				<tr>
+					<td>
+							<%= index + 1 %>
+					</td>
+					<td>
+							<%= order.user.username %>
+					</td>
+					<td>
+							<%= order.created_at.to_date %>
+					</td>
+					<td>
+						<% if order.restaurant %>
+							<%= order.restaurant.name %>
+						<% else %>
+						  <%= "餐廳已刪除" %>
+						<% end %>
+					</td>
+					<td>
+							<%= order.orderlists.count %>
+					</td>
+					<td>
+						<%= link_to "訂購名單", order_orderlists_path(order), class: 'btn btn-primary' %>
+						<%= link_to "刪除紀錄", admin_order_path(order), method: :delete, class: 'btn btn-danger',data: { confirm: "確定刪除此筆紀錄?" } %>
+					</td>
+				</tr>
+				<% end %>
+		</tbody>
+		</table>
+	<% end %>
+	</div>
+</div>
+
+
+

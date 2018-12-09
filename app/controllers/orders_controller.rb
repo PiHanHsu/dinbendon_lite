@@ -62,7 +62,7 @@ private
 		@order = Order.find(params[:id])
 	end
 
-	def restaurant_params
+	def order_params
     params.require(:order).permit(:user_id, :restaurant_id, :is_open, :deadline)
   end
 

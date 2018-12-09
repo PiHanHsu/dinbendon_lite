@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HoJar Service</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+  	<% if flash[:notice].present? %>
+      <div class="alert alert-success" role="alert"><%= flash[:notice] %>
+      </div>
+    <%end%>
+    <% if flash[:alert].present? %>
+      <div class="alert alert-danger" role="alert"><%= flash[:alert] %>
+      </div>
+    <%end%>
+      
+      <div class="container">
+      <div class="row" style="padding-top: 20px">
+          <div class="col-lg-12">
+            <%= image_tag("HoJar.jpg", size: "70x70") %>
+            <% if current_user %>
+            <%= link_to "回產品首頁", :root, class: 'btn btn-primary' %>
+            <%= link_to 'Overview', overview_admin_orders_path, class: 'btn btn-warning' %>
+            <%= link_to '餐廳清單', admin_restaurants_path, class: 'btn btn-warning' %>
+            <%= link_to '訂單清單', admin_orders_path, class: 'btn btn-warning' %>
+            <%= link_to '登出', destroy_user_session_path, :method => :delete, class: 'btn btn-warning' %> 
+            <% end %>
+          </div>
+      </div>
+
+        <%= yield %>
+      </div>
+    <!-- Footer -->
+    <footer class="footer text-center fixed-bottom">
+      <div class="row">
+          <div class="col-lg-12">
+              <font size="4">
+                <br>
+                  HoJar.Inc &copy; Since 2018
+              </font>
+              <br></br>
+          </div>
+      </div>
+    </footer>
+  </body>
+</html>
